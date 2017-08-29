@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Planning Poker.CSharp.Plugins", "UnityVS.Planning Poker.CSharp.Plugins.csproj", "{DB772701-F2D1-A1F1-6F82-9DD999762ACA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Planning Poker.CSharp", "UnityVS.Planning Poker.CSharp.csproj", "{5F59806C-D4F9-9758-D2D1-08D701187459}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Planning Poker.CSharp.Editor", "UnityVS.Planning Poker.CSharp.Editor.csproj", "{55820668-0F15-B9F4-45FC-723EDDD372A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB772701-F2D1-A1F1-6F82-9DD999762ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB772701-F2D1-A1F1-6F82-9DD999762ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB772701-F2D1-A1F1-6F82-9DD999762ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB772701-F2D1-A1F1-6F82-9DD999762ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F59806C-D4F9-9758-D2D1-08D701187459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F59806C-D4F9-9758-D2D1-08D701187459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F59806C-D4F9-9758-D2D1-08D701187459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F59806C-D4F9-9758-D2D1-08D701187459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55820668-0F15-B9F4-45FC-723EDDD372A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55820668-0F15-B9F4-45FC-723EDDD372A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55820668-0F15-B9F4-45FC-723EDDD372A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55820668-0F15-B9F4-45FC-723EDDD372A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
