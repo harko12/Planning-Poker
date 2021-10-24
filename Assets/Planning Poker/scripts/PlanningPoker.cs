@@ -92,13 +92,15 @@ public class PlanningPoker : MonoBehaviour{
                 o.tno.DestroySelf();
             }
             if (p == null)
-                TNManager.Create(participantPrefab, transform.position, Quaternion.identity, false);
+            { //TODO switch to RCC, or prefabpath if it ever matters again
+                //TNManager.Create(participantPrefab, transform.position, Quaternion.identity, false);
+            }
         }
         else
         {
             if (o == null)
             {
-                TNManager.Create(observerPrefab, false);
+                //TNManager.Create(observerPrefab, false);
             }
             if (p != null)
                 p.tno.DestroySelf();

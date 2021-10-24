@@ -60,7 +60,7 @@ public class Participant : TNBehaviour {
     }
     void Awake()
     {
-        if (TNManager.isThisMyObject)
+        if (tno.isMine)
             instance = this;
     }
     // Use this for initialization

@@ -17,6 +17,6 @@ public class Ground : MonoBehaviour {
 
     void OnClick()
     {
-        GamePlayer.instance.target = TouchHandler.worldPos;
+        //GamePlayer.instance.target = TouchHandler.worldPos;
     }
 }

@@ -76,7 +76,7 @@ public class Observer : TNBehaviour {
     }
     void Awake()
     {
-        if (TNManager.isThisMyObject)
+        if (tno.isMine)
             instance = this;
     }
     /*

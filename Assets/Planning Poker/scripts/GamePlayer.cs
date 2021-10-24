@@ -22,7 +22,7 @@ public class GamePlayer : TNBehaviour {
 	
     void Awake()
     {
-        if (TNManager.isThisMyObject)
+        if (tno.isMine)
             instance = this;
     }
 	// Update is called once per frame

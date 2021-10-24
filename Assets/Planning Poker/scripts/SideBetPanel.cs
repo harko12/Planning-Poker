@@ -49,7 +49,7 @@ public class SideBetPanel : MonoBehaviour {
 
     void Init()
     {
-        SetPlayerName(TNManager.playerName);
+        SetPlayerName(TNet.TNManager.playerName);
         lblMoney.text = "0";
         PlayerChosen.value = false;
         ResultChosen.value = false;
@@ -80,7 +80,7 @@ public class SideBetPanel : MonoBehaviour {
         var gm = PlanningPoker.instance;
         foreach (var p in gm.participants)
         {
-            TNet.Player player = TNManager.GetPlayer(p.tno.ownerID);
+            TNet.Player player = TNet.TNManager.GetPlayer(p.tno.ownerID);
             if (player != null) // could happen if somebody exits .  should look at a way to handle that
                 list.Add(player.name);
         }
