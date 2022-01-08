@@ -76,6 +76,18 @@ public class PPMainMenu : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        TNManager.onConnect += OnNetworkConnect;
+        TNManager.onLeaveChannel += OnNetworkLeaveChannel;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onConnect -= OnNetworkConnect;
+        TNManager.onLeaveChannel -= OnNetworkLeaveChannel;
+    }
+
     /// <summary>
     /// Show the GUI for the examples.
     /// </summary>
@@ -250,7 +262,7 @@ public class PPMainMenu : MonoBehaviour
     /// This message is also sent out when we get disconnected.
     /// </summary>
 
-    void OnNetworkLeaveChannel()
+    void OnNetworkLeaveChannel(int channelID)
     {
         SceneManager.LoadScene(mainMenu);
     }

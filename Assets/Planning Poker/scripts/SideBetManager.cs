@@ -38,7 +38,17 @@ public class SideBetManager : TNBehaviour {
         ResetForNextRound();
     }
 
-    public void OnNetworkPlayerJoin(Player p)
+    private void OnEnable()
+    {
+        TNManager.onPlayerJoin += OnNetworkPlayerJoin;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onPlayerJoin -= OnNetworkPlayerJoin;
+    }
+
+    public void OnNetworkPlayerJoin(int channelID, Player p)
     {
     }
 

@@ -79,6 +79,22 @@ public class Observer : TNBehaviour {
         if (tno.isMine)
             instance = this;
     }
+
+    private void OnEnable()
+    {
+        TNManager.onPlayerJoin += OnNetworkPlayerJoin;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onPlayerJoin -= OnNetworkPlayerJoin;
+    }
+
+    void OnNetworkPlayerJoin(int channelID, Player p)
+    {
+        tno.Send(200, p, values.name, values.money, values.winLossRatio);
+    }
+
     /*
     [RFC(201)]
     public void AddSideBet(int t, string n, string e, string a, bool w)
@@ -181,8 +197,4 @@ public class Observer : TNBehaviour {
         }
     }
 
-    void OnNetworkPlayerJoin(Player p)
-    {
-        tno.Send(200, p, values.name, values.money, values.winLossRatio);
-    }
 }

@@ -237,12 +237,25 @@ public class Participant : TNBehaviour {
         if (action != null) actionLabel.text = action;
     }
 
-    void OnNetworkPlayerJoin(Player p)
+    private void OnEnable()
+    {
+        TNManager.onPlayerJoin += OnNetworkPlayerJoin;
+        TNManager.onPlayerLeave += OnNetworkPlayerLeave;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onPlayerJoin -= OnNetworkPlayerJoin;
+        TNManager.onPlayerLeave -= OnNetworkPlayerLeave;
+    }
+
+    void OnNetworkPlayerJoin(int channelID, Player p)
     {
         tno.Send("OnSetLabels", p, nameLabel.text, valueLabel.text, actionLabel.text);
     }
 
-    void OnNetworkPlayerLeave(Player p)
+
+    void OnNetworkPlayerLeave(int channelID, Player p)
     {
 
     }

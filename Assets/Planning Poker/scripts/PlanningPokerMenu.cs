@@ -13,7 +13,16 @@ public class PlanningPokerMenu : MonoBehaviour {
         lblName.text = TNManager.playerName;
         observingLabel.enabled = false;
 	}
-	
+
+    private void OnEnable()
+    {
+        TNManager.onDisconnect += OnNetworkDisconnect;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onDisconnect -= OnNetworkDisconnect;
+    }
     /*
     public void UpdatePlayerName()
     {

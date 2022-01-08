@@ -36,7 +36,18 @@ public class GamePlayer : TNBehaviour {
         mTarget = pos;
     }
 
-    void OnNetworkPlayerJoin(Player p)
+    private void OnEnable()
+    {
+        TNManager.onPlayerJoin += OnNetworkPlayerJoin;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onPlayerJoin -= OnNetworkPlayerJoin;
+    }
+
+
+    void OnNetworkPlayerJoin(int channelID, Player p)
     {
         tno.Send("OnSetTargetImmediate", p, transform.position);
     }

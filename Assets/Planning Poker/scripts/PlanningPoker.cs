@@ -46,6 +46,18 @@ public class PlanningPoker : MonoBehaviour{
         sideBetPanel.enabled = enabled;
     }
 
+    private void OnEnable()
+    {
+        TNManager.onRenamePlayer += OnNetworkPlayerRenamed;
+        TNManager.onPlayerLeave += OnNetworkPlayerLeave;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onRenamePlayer -= OnNetworkPlayerRenamed;
+        TNManager.onPlayerLeave -= OnNetworkPlayerLeave;
+    }
+
     void OnNetworkPlayerRenamed(Player p, string previous)
     {
         if (p.id == TNManager.playerID)
@@ -69,7 +81,7 @@ public class PlanningPoker : MonoBehaviour{
         UpdatePlayerLists();
     }
 
-    void OnNetworkPlayerLeave(Player p)
+    void OnNetworkPlayerLeave(int channelID, Player p)
     {
         //participantPanel.repositionNow = true;
         UpdatePlayerLists();
@@ -94,6 +106,11 @@ public class PlanningPoker : MonoBehaviour{
             if (p == null)
             { //TODO switch to RCC, or prefabpath if it ever matters again
                 //TNManager.Create(participantPrefab, transform.position, Quaternion.identity, false);
+                TNManager.Instantiate(1,
+                    nameof(CreateParticipant),
+                    "prefabs/Participant small",
+                    false,
+                    transform.position, Quaternion.identity);
             }
         }
         else
@@ -101,10 +118,33 @@ public class PlanningPoker : MonoBehaviour{
             if (o == null)
             {
                 //TNManager.Create(observerPrefab, false);
+                TNManager.Instantiate(1,
+                    nameof(CreateObserver),
+                    "prefabs/Observer",
+                    false);
             }
             if (p != null)
                 p.tno.DestroySelf();
         }
+    }
+
+    [RCC]
+    static GameObject CreateParticipant(GameObject prefab, Vector3 pos, Quaternion rot)
+    {
+        var go = prefab.Instantiate();
+        Transform t = go.transform;
+        t.position = pos;
+        t.rotation = rot;
+
+        return go;
+    }
+
+    [RCC]
+    static GameObject CreateObserver(GameObject prefab)
+    {
+        var go = prefab.Instantiate();
+
+        return go;
     }
 
     public void AddObserver(Observer o)

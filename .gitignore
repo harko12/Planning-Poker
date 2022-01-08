@@ -46,24 +46,13 @@ Corridor/Library/ShaderCache/
 Corridor/Library/metadata/
 
 Library/
+Logs/
 
 \.vs/
 
-PlanningPoker_web/
 
 obj/
-
-planningpoker_Data/
-
-planningpoker_s_Data/
-
-Planning Poker_08012017\.zip
-
-planningpoker_11102015\.zip
-
-planningpoker_new\.zip
-
-planningpoker_s\.exe
+builds/
 
 Assets/Allsky/
 

@@ -74,13 +74,27 @@ public class PlayerList : MonoBehaviour {
         playerLine.myPlayer = p;
         playerLine.UpdateLine(p);
     }
-        
-    void OnNetworkPlayerJoin(Player p)
+
+    private void OnEnable()
+    {
+        TNManager.onRenamePlayer += OnNetworkPlayerRenamed;
+        TNManager.onPlayerLeave += OnNetworkPlayerLeave;
+        TNManager.onPlayerJoin += OnNetworkPlayerJoin;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onRenamePlayer -= OnNetworkPlayerRenamed;
+        TNManager.onPlayerLeave -= OnNetworkPlayerLeave;
+        TNManager.onPlayerJoin -= OnNetworkPlayerJoin;
+    }
+
+    void OnNetworkPlayerJoin(int channelID, Player p)
     {
         UpdatePlayerList();
     }
 
-    void OnNetworkPlayerLeave(Player p)
+    void OnNetworkPlayerLeave(int channelID, Player p)
     {
         UpdatePlayerList();
     }

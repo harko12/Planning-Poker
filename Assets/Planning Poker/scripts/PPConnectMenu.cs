@@ -25,8 +25,20 @@ public class PPConnectMenu : MonoBehaviour {
     private const string playerNameKey = "PlanningPoker_PlayerName";
     private const string addressKey = "PlanningPoker_Address";
     private const string addressListKey = "PlanningPoker_AddressList";
+
+    private void OnEnable()
+    {
+        TNManager.onConnect += OnNetworkConnect;
+        TNManager.onLeaveChannel += OnNetworkLeaveChannel;
+    }
+
+    private void OnDisable()
+    {
+        TNManager.onConnect -= OnNetworkConnect;
+        TNManager.onLeaveChannel -= OnNetworkLeaveChannel;
+    }
     // Use this for initialization
-	void Start () {
+    void Start () {
         btnLabel = btnConnect.gameObject.GetComponentInChildren<UILabel>();
         if (PlayerPrefs.HasKey(playerNameKey))
         {
@@ -128,7 +140,7 @@ public class PPConnectMenu : MonoBehaviour {
 
     }
 
-    void OnNetworkLeaveChannel()
+    void OnNetworkLeaveChannel(int channelID)
     {
         SceneManager.LoadScene(connectScene);
     }
